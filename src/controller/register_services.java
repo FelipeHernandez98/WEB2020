@@ -43,15 +43,15 @@ public class register_services extends HttpServlet {
 		String descripcion = request.getParameter("descripcion");
 		int tienda = Integer.parseInt(request.getParameter("tienda"));
 		Servicio objServicio = new Servicio();
-		objServicio.setClave(clave);
+		objServicio.setDescripcion(descripcion);
 		objServicio.setNombre(nombre);
-		objCliente.setEmail(email);
+		objServicio.setTienda(tienda);
 		
 		EntityManager entity = JPAUtil.getEntityManagerFactory().createEntityManager();
 		entity.getTransaction().begin();
-		entity.persist(objCliente);
+		entity.persist(objServicio);
 		entity.getTransaction().commit();
-		System.out.println("Cliente registrado.."+objCliente.toString());
+		System.out.println("Servicio registrado.."+objServicio.toString());
 		request.getRequestDispatcher("select_registro.jsp").forward(request, response);
 		
 		

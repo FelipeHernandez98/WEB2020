@@ -1,22 +1,42 @@
 package entities;
 
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 @Entity
 @NamedQuery(name="Tienda.findAll", query="SELECT t FROM Tienda t")
-public class Tienda {
+public class Tienda implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+	@Id
 	private int id;
+	@Column(name="nombre")
 	private String nombre;
+	@Column(name="lema")
 	private String lema;
+	@Column(name="descripcion")
 	private String descripcion;
+	@Column(name="email")
 	private String email;
+	@Column(name="clave")
 	private String clave;
+	@Column(name="propietario")
 	private String propietario;
+	@Column(name="facebook")
 	private String facebook;
+	@Column(name="web")
 	private String web;
+	@Column(name="imagen")
 	private String imagen;
+	
+
 	public int getId() {
 		return id;
 	}
