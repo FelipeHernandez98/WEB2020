@@ -1,16 +1,25 @@
 package entities;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQuery(name="Cliente.findAll", query="SELECT c FROM Cliente c")
-public class Cliente {
+public class Cliente implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	
+	@Id
 	private int id;
+	@Column(name="nombre")
 	private String nombre;
+	@Column(name="email")
 	private String email;
+	@Column(name="clave")
 	private String clave;
 	
 	public Cliente(){}
