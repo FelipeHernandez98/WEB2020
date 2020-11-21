@@ -8,15 +8,15 @@ import javax.persistence.EntityManager;
 
 import util.JPAUtil;
 
-public class ClienteDao {
+public class ServiciosDao {
 EntityManager em = null;
 	
-	public ClienteDao() {
+	public ServiciosDao() {
 		this.em = JPAUtil.getEntityManagerFactory().createEntityManager();
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<ClienteDao> listar (){
-		return (List<ClienteDao>) em.createQuery("select c from Cliente c").getResultList();
+	public List<ServiciosDao> listar (){
+		return (List<ServiciosDao>) em.createQuery("select s from Servicio s").getResultList();
 	}
 }
